@@ -1,276 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Next Level</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
+<title>Next Level</title>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    body{
-      background:#0f172a;
-      color:white;
-    }
+<style>
 
-    .header{
-      width:100%;
-      height:70px;
-      background:#111827;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 20px;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      position:sticky;
-      top:0;
-      z-index:100;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
+body{
+background:#050816;
+overflow-x:hidden;
+color:white;
+}
 
-    .logo img{
-      width:45px;
-      height:45px;
-      border-radius:12px;
-    }
+/* BACKGROUND */
 
-    .logo h1{
-      font-size:22px;
-      font-weight:700;
-      color:#38bdf8;
-    }
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
+background:
+radial-gradient(circle at top left,#2563eb55,transparent 30%),
+radial-gradient(circle at bottom right,#7c3aed55,transparent 30%),
+#050816;
+}
 
-    .nav-btn{
-      background:#2563eb;
-      color:white;
-      border:none;
-      padding:10px 18px;
-      border-radius:10px;
-      cursor:pointer;
-      font-weight:bold;
-    }
+/* HEADER */
 
-    .hero{
-      width:100%;
-      padding:60px 20px;
-      text-align:center;
-      background:linear-gradient(to bottom,#111827,#0f172a);
-    }
+header{
+width:100%;
+height:80px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 8%;
+backdrop-filter:blur(14px);
+background:rgba(255,255,255,0.04);
+border-bottom:1px solid rgba(255,255,255,0.08);
+position:sticky;
+top:0;
+z-index:999;
+}
 
-    .hero img{
-      width:120px;
-      height:120px;
-      border-radius:28px;
-      box-shadow:0 0 25px rgba(56,189,248,0.4);
-    }
+.logo{
+display:flex;
+align-items:center;
+gap:14px;
+}
 
-    .hero h2{
-      margin-top:20px;
-      font-size:40px;
-      font-weight:800;
-    }
+.logo img{
+width:52px;
+height:52px;
+border-radius:16px;
+box-shadow:0 0 25px #2563eb88;
+}
 
-    .hero p{
-      margin-top:15px;
-      color:#cbd5e1;
-      font-size:18px;
-      max-width:700px;
-      margin-left:auto;
-      margin-right:auto;
-      line-height:1.7;
-    }
+.logo h1{
+font-size:28px;
+font-weight:800;
+background:linear-gradient(to right,#38bdf8,#8b5cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-    .download-btn{
-      display:inline-block;
-      margin-top:30px;
-      background:#38bdf8;
-      color:black;
-      text-decoration:none;
-      padding:18px 40px;
-      border-radius:14px;
-      font-size:20px;
-      font-weight:700;
-      transition:0.3s;
-    }
+.nav-btn{
+padding:12px 26px;
+border:none;
+border-radius:14px;
+background:linear-gradient(to right,#2563eb,#7c3aed);
+color:white;
+font-weight:700;
+font-size:15px;
+cursor:pointer;
+box-shadow:0 0 20px rgba(37,99,235,0.4);
+}
 
-    .download-btn:hover{
-      transform:scale(1.05);
-      background:#0ea5e9;
-    }
+/* HERO */
 
-    .stats{
-      width:100%;
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
-      margin-top:50px;
-    }
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:80px 8%;
+gap:70px;
+flex-wrap:wrap;
+}
 
-    .card{
-      width:220px;
-      background:#1e293b;
-      padding:25px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,0.08);
-    }
+.left{
+flex:1;
+min-width:320px;
+}
 
-    .card h3{
-      font-size:30px;
-      color:#38bdf8;
-    }
+.badge{
+display:inline-block;
+padding:10px 18px;
+border-radius:999px;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.1);
+margin-bottom:24px;
+font-size:14px;
+color:#cbd5e1;
+backdrop-filter:blur(10px);
+}
 
-    .card p{
-      margin-top:10px;
-      color:#cbd5e1;
-    }
+.left h2{
+font-size:70px;
+font-weight:800;
+line-height:1.1;
+margin-bottom:24px;
+}
 
-    .screenshots{
-      padding:60px 20px;
-      text-align:center;
-    }
+.left h2 span{
+background:linear-gradient(to right,#38bdf8,#8b5cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-    .screenshots h2{
-      font-size:36px;
-      margin-bottom:40px;
-    }
+.left p{
+font-size:18px;
+line-height:1.9;
+color:#cbd5e1;
+max-width:650px;
+margin-bottom:35px;
+}
 
-    .shot-grid{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
+.buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
 
-    .shot-grid img{
-      width:260px;
-      border-radius:20px;
-      border:2px solid rgba(255,255,255,0.08);
-      transition:0.3s;
-    }
+.download-btn{
+padding:18px 38px;
+border-radius:18px;
+background:linear-gradient(to right,#38bdf8,#2563eb);
+color:white;
+font-size:18px;
+font-weight:700;
+text-decoration:none;
+box-shadow:0 0 35px rgba(56,189,248,0.4);
+transition:0.3s;
+}
 
-    .shot-grid img:hover{
-      transform:translateY(-6px);
-    }
+.download-btn:hover{
+transform:translateY(-4px) scale(1.03);
+}
 
-    .footer{
-      margin-top:60px;
-      background:#111827;
-      padding:30px;
-      text-align:center;
-      color:#94a3b8;
-      border-top:1px solid rgba(255,255,255,0.08);
-    }
+.secondary-btn{
+padding:18px 38px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.15);
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+color:white;
+font-size:18px;
+font-weight:600;
+text-decoration:none;
+transition:0.3s;
+}
 
-    @media(max-width:768px){
+.secondary-btn:hover{
+background:rgba(255,255,255,0.1);
+}
 
-      .hero h2{
-        font-size:30px;
-      }
+/* PHONE MOCKUP */
 
-      .hero p{
-        font-size:16px;
-      }
+.right{
+flex:1;
+display:flex;
+justify-content:center;
+min-width:320px;
+}
 
-      .download-btn{
-        width:100%;
-      }
+.phone{
+width:320px;
+height:640px;
+background:#0f172a;
+border-radius:40px;
+padding:18px;
+border:2px solid rgba(255,255,255,0.1);
+box-shadow:
+0 0 60px rgba(37,99,235,0.25),
+0 0 120px rgba(124,58,237,0.15);
+position:relative;
+}
 
-      .card{
-        width:100%;
-        max-width:300px;
-      }
+.phone::before{
+content:'';
+position:absolute;
+top:12px;
+left:50%;
+transform:translateX(-50%);
+width:120px;
+height:26px;
+background:black;
+border-radius:20px;
+}
 
-    }
+.screen{
+width:100%;
+height:100%;
+border-radius:30px;
+overflow:hidden;
+}
 
-  </style>
+.screen img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
+/* STATS */
+
+.stats{
+padding:40px 8%;
+display:flex;
+justify-content:center;
+gap:24px;
+flex-wrap:wrap;
+margin-top:-60px;
+}
+
+.stat-card{
+width:240px;
+padding:32px;
+border-radius:24px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+text-align:center;
+transition:0.3s;
+}
+
+.stat-card:hover{
+transform:translateY(-8px);
+}
+
+.stat-card h3{
+font-size:42px;
+margin-bottom:10px;
+background:linear-gradient(to right,#38bdf8,#8b5cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.stat-card p{
+color:#cbd5e1;
+}
+
+/* FEATURES */
+
+.features{
+padding:120px 8%;
+text-align:center;
+}
+
+.features h2{
+font-size:54px;
+margin-bottom:18px;
+}
+
+.features p{
+color:#cbd5e1;
+max-width:700px;
+margin:auto;
+line-height:1.8;
+margin-bottom:70px;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+}
+
+.feature{
+padding:40px;
+border-radius:26px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(18px);
+transition:0.3s;
+}
+
+.feature:hover{
+transform:translateY(-10px);
+}
+
+.feature h3{
+font-size:24px;
+margin-bottom:16px;
+}
+
+.feature p{
+font-size:15px;
+color:#cbd5e1;
+line-height:1.8;
+}
+
+/* SCREENSHOTS */
+
+.gallery{
+padding:40px 8% 120px;
+text-align:center;
+}
+
+.gallery h2{
+font-size:52px;
+margin-bottom:60px;
+}
+
+.shots{
+display:flex;
+justify-content:center;
+gap:26px;
+flex-wrap:wrap;
+}
+
+.shots img{
+width:280px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+box-shadow:0 0 30px rgba(0,0,0,0.3);
+}
+
+.shots img:hover{
+transform:translateY(-10px) scale(1.03);
+}
+
+/* FOOTER */
+
+footer{
+padding:40px 8%;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.08);
+background:rgba(255,255,255,0.03);
+color:#94a3b8;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.left h2{
+font-size:48px;
+}
+
+.hero{
+padding-top:60px;
+}
+
+.phone{
+width:280px;
+height:560px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <div class="header">
+<div class="bg"></div>
 
-    <div class="logo">
-      <img src="https://i.ibb.co/3Y7CfCRn/log2.png" alt="">
-      <h1>Next Level</h1>
-    </div>
+<header>
 
-    <button class="nav-btn">
-      Android App
-    </button>
+<div class="logo">
+<img src="https://i.ibb.co/3Y7CfCRn/log2.png">
+<h1>Next Level</h1>
+</div>
 
-  </div>
+<button class="nav-btn">
+Android App
+</button>
 
-  <section class="hero">
+</header>
 
-    <img src="https://i.ibb.co/3Y7CfCRn/log2.png" alt="">
+<section class="hero">
 
-    <h2>Next Level Android Application</h2>
+<div class="left">
 
-    <p>
-      Fast, secure and optimized Android experience with modern UI,
-      smooth performance and premium level functionality.
-    </p>
+<div class="badge">
+⚡ Premium Android Experience
+</div>
 
-    <a class="download-btn"
-       href="https://firebasestorage.googleapis.com/v0/b/nextlevelcheats-94b66.firebasestorage.app/o/Vexx%20Loader%20v11%20(1)_sign.apk?alt=media&token=435efd77-7679-491c-bb80-3c07440a78a1">
+<h2>
+Experience The <span>Next Level</span> Android Platform
+</h2>
 
-       Download APK
+<p>
+Modern design, smooth performance, optimized architecture and premium level user experience built for Android users who demand speed, quality and reliability.
+</p>
 
-    </a>
+<div class="buttons">
 
-    <div class="stats">
+<a class="download-btn"
+href="https://firebasestorage.googleapis.com/v0/b/nextlevelcheats-94b66.firebasestorage.app/o/Vexx%20Loader%20v11%20(1)_sign.apk?alt=media&token=435efd77-7679-491c-bb80-3c07440a78a1">
 
-      <div class="card">
-        <h3>50K+</h3>
-        <p>Downloads</p>
-      </div>
+Download APK
 
-      <div class="card">
-        <h3>4.9★</h3>
-        <p>User Rating</p>
-      </div>
+</a>
 
-      <div class="card">
-        <h3>v11</h3>
-        <p>Latest Version</p>
-      </div>
+<a class="secondary-btn" href="#features">
+Explore Features
+</a>
 
-    </div>
+</div>
 
-  </section>
+</div>
 
-  <section class="screenshots">
+<div class="right">
 
-    <h2>Application Preview</h2>
+<div class="phone">
 
-    <div class="shot-grid">
+<div class="screen">
+<img src="https://i.ibb.co/ds5WNvPF/IMG-20260513-080216.jpg">
+</div>
 
-      <img src="https://via.placeholder.com/300x600">
-      <img src="https://via.placeholder.com/300x600">
-      <img src="https://via.placeholder.com/300x600">
+</div>
 
-    </div>
+</div>
 
-  </section>
+</section>
 
-  <div class="footer">
+<section class="stats">
 
-    © 2026 Next Level. All rights reserved.
+<div class="stat-card">
+<h3>50K+</h3>
+<p>Downloads</p>
+</div>
 
-  </div>
+<div class="stat-card">
+<h3>4.9★</h3>
+<p>User Rating</p>
+</div>
+
+<div class="stat-card">
+<h3>v11</h3>
+<p>Latest Version</p>
+</div>
+
+</section>
+
+<section class="features" id="features">
+
+<h2>Why Choose Next Level?</h2>
+
+<p>
+Designed with advanced optimization and smooth modern UI to deliver a premium Android experience.
+</p>
+
+<div class="feature-grid">
+
+<div class="feature">
+<h3>⚡ Fast Performance</h3>
+<p>
+Highly optimized system architecture for ultra smooth and responsive experience.
+</p>
+</div>
+
+<div class="feature">
+<h3>🔒 Secure Platform</h3>
+<p>
+Advanced security and stability enhancements for reliable performance.
+</p>
+</div>
+
+<div class="feature">
+<h3>🎨 Premium UI</h3>
+<p>
+Modern dark interface with glassmorphism inspired premium visual design.
+</p>
+</div>
+
+<div class="feature">
+<h3>🚀 Optimized Experience</h3>
+<p>
+Low memory usage and improved Android compatibility for better efficiency.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="gallery">
+
+<h2>Application Preview</h2>
+
+<div class="shots">
+
+<img src="https://via.placeholder.com/300x600">
+<img src="https://via.placeholder.com/300x600">
+<img src="https://via.placeholder.com/300x600">
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Next Level. All Rights Reserved.
+
+</footer>
 
 </body>
 </html>
